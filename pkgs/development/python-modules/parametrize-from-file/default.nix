@@ -1,9 +1,7 @@
 { lib
 , buildPythonPackage
 , fetchPypi
-, fetchpatch
 , pytestCheckHook
-, coveralls
 , numpy
 , decopatch
 , more-itertools
@@ -23,14 +21,6 @@ buildPythonPackage rec {
     pname = "parametrize_from_file";
     hash = "sha256-mYE8J7XWlvCS2H3kt0bB8dyPHFDqmW8NiH9UCrNccAU=";
   };
-
-  patches = [
-    (fetchpatch {
-      name = "replace contextlib2-with-contextlib.patch";
-      url = "https://github.com/kalekundert/parametrize_from_file/commit/edee706770a713130da7c4b38b0a07de1bd79c1b.patch";
-      hash = "sha256-VkPKGkYYTB5XCavtEEnFJ+EdNUUhITz/euwlYAPC/tQ=";
-    })
-  ];
 
   # patch out coveralls since it doesn't provide us value
   preBuild = ''
