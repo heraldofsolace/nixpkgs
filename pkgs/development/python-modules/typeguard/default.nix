@@ -38,11 +38,14 @@ buildPythonPackage rec {
     sphinx-rtd-theme
   ];
 
+  propagatedBuildInputs = [
+    typing-extensions
+  ];
+
   env.LC_ALL = "en_US.utf-8";
 
   nativeCheckInputs = [
     pytestCheckHook
-    typing-extensions
   ];
 
   disabledTestPaths = [
